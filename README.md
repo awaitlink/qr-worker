@@ -12,7 +12,7 @@ Options are position-insensitive.
 
 Option | Description | Values | Default
 ---|---|---|---
-`data` | Data to encode in the QR code | Any | Whole URL of the request
+`data` (everything after `?`) | Data to encode in the QR code | Any | Whole URL of the request
 `fg` | Foreground color | Hex colors (without `#`) | `000000`
 `bg` | Background color | Hex colors (without `#`) | `ffffff`
 `min` | Minimum size of the resulting code, including the quiet zone | [`u32`](https://doc.rust-lang.org/std/primitive.u32.html) | n/a
