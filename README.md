@@ -1,6 +1,6 @@
 # qr-worker
 
-A simple worker that generates QR codes as SVG images.
+A simple WASM worker that generates QR codes as SVG images.
 
 ## Query format
 
