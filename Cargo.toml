@@ -11,7 +11,7 @@ crate-type = ["cdylib", "rlib"]
 default = ["console_error_panic_hook"]
 
 [dependencies]
-qrcode-generator = "1.0"
+qrcode = "0.11.0"
 url = "2.1"
 cfg-if = "0.1.2"
 wasm-bindgen = "0.2"
