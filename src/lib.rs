@@ -5,6 +5,7 @@ use qrcode::{render::svg::Color, EcLevel, QrCode};
 use std::collections::HashMap;
 use url::Url;
 use wasm_bindgen::prelude::*;
+use std::str::Split;
 
 cfg_if! {
     // When the `wee_alloc` feature is enabled, use `wee_alloc` as the global
@@ -26,7 +27,7 @@ struct Config {
 }
 
 // https://example.com/fg=000000/bg=ffffff/min=128/max=256/ec=m/qz=1?data
-fn parse_config(segments: &mut std::str::Split<'_, char>) -> Config {
+fn parse_config(segments: &mut Split<char>) -> Config {
     const DEFAULT_EC_LEVEL: EcLevel = EcLevel::M;
     const DEFAULT_BG: &str = "#ffffff";
     const DEFAULT_FG: &str = "#000000";
