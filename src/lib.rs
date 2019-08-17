@@ -2,10 +2,9 @@ mod utils;
 
 use cfg_if::cfg_if;
 use qrcode::{render::svg::Color, EcLevel, QrCode};
-use std::collections::HashMap;
+use std::{collections::HashMap, str::Split};
 use url::Url;
 use wasm_bindgen::prelude::*;
-use std::str::Split;
 
 cfg_if! {
     // When the `wee_alloc` feature is enabled, use `wee_alloc` as the global
