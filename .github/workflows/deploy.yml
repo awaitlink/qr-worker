@@ -11,10 +11,15 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
+      - name: Debug
+        run: |
+          which rustc
+          rustc -V
+          echo $PATH
+          ls .cargo/bin
       - name: Publish
-        uses: cloudflare/wrangler-action@1.3.0
+        uses: cloudflare/wrangler-action@1.2.0
         with:
           apiToken: ${{ secrets.CF_API_TOKEN }}
-          wranglerVersion: 1.10.3
         env:
           CF_ACCOUNT_ID: ${{ secrets.CF_ACCOUNT_ID }}
