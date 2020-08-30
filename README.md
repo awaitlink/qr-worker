@@ -2,6 +2,8 @@
 
 A simple WASM worker that generates QR codes as SVG images.
 
+[![Deploy to Cloudflare Workers](https://deploy.workers.cloudflare.com/button)](https://deploy.workers.cloudflare.com/?url=https://github.com/u32i64/qr-worker)
+
 ## Query format
 
 ```
