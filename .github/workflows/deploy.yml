@@ -11,6 +11,11 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
+      - name: Configure Rust
+        run: |
+          rustup install stable
+          rustup default stable
+          rustc -V
       - name: Publish
         uses: cloudflare/wrangler-action@1.2.0
         with:
