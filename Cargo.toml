@@ -15,6 +15,7 @@ qrcode = "0.14"
 url = "2.5"
 cfg-if = "1.0"
 wasm-bindgen = "0.2"
+worker = "0.0.13"
 
 # The `console_error_panic_hook` crate provides better debugging of panics by
 # logging them with `console.error`. This is great for development, but requires

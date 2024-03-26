@@ -5,6 +5,7 @@ use qrcode::{render::svg::Color, EcLevel, QrCode};
 use std::{collections::HashMap, str::Split};
 use url::Url;
 use wasm_bindgen::prelude::*;
+use worker::event;
 
 cfg_if! {
     // When the `wee_alloc` feature is enabled, use `wee_alloc` as the global
@@ -14,6 +15,21 @@ cfg_if! {
         #[global_allocator]
         static ALLOC: wee_alloc::WeeAlloc = wee_alloc::WeeAlloc::INIT;
     }
+}
+
+#[event(fetch)]
+pub async fn fetch(
+    req: worker::Request,
+    _env: worker::Env,
+    _ctx: worker::Context,
+) -> worker::Result<worker::Response> {
+    let svg = handle_request(req.url()?.to_string())?;
+    let response = worker::Response::from_bytes(svg.as_bytes().to_vec())?;
+
+    let mut headers = worker::Headers::new();
+    headers.append("content-type", "image/svg+xml")?;
+
+    Ok(response.with_headers(headers))
 }
 
 struct Config {
