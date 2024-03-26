@@ -33,7 +33,7 @@ fn parse_config(segments: &mut Split<char>) -> Config {
     const DEFAULT_QUIET_ZONE: bool = true;
 
     let map = segments.fold(HashMap::new(), |mut acc, e| {
-        let pair = e.split("=").collect::<Vec<_>>();
+        let pair = e.split('=').collect::<Vec<_>>();
 
         if pair.len() < 2 {
             return acc;
@@ -96,7 +96,7 @@ pub fn handle_request(url: String) -> Result<String, JsValue> {
 
     let text = match url.query() {
         Some(text) => text.to_owned(),
-        None => url.clone().into_string(),
+        None => url.clone().into(),
     };
 
     let mut segments = url
@@ -123,5 +123,5 @@ pub fn handle_request(url: String) -> Result<String, JsValue> {
         image_builder = image_builder.max_dimensions(size, size);
     }
 
-    Ok(format!("{}", image_builder.build()))
+    Ok(image_builder.build().to_string())
 }
